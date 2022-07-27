@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { todosRemainingSelector } from '../../redux/selectors';
-import { todoListSlice } from './TodoListSlice';
+import todoListSlice from './todoListSlice';
 
 export default function TodoList() {
     const [todoName, setTodoName] = useState('');
@@ -34,13 +34,13 @@ export default function TodoList() {
     }
 
     return (
-        <Row style={{ height: 'calc(100% - 40px)' }}>
+        <Row style={{ height: 'calc(100% - 40px)', position: 'relative', overflowY: 'hidden' }}>
             <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
                 {todoList.map(todo =>
                     <Todo key={todo.id} todoId={todo.id} name={todo.name} priority={todo.priority} completed={todo.completed}/>
                 )}
             </Col>
-            <Col span={24}>
+            <Col span={24} style={{position: 'absolute', bottom: '0', left: '0', right: '0'}}>
                 <Input.Group style={{ display: 'flex' }} compact>
                     <Input value={todoName} onChange={handleInputChange} />
                     <Select defaultValue="Medium" value={priority} onChange={handlePriorityChange}>

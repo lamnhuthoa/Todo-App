@@ -20,7 +20,7 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
-export const todoListSlice = createSlice({
+export default createSlice({
     name: 'todoList',
     initialState: [
         { id: 1, name: 'Learn Yoga', completed: false, priority: 'Medium' },
@@ -33,8 +33,10 @@ export const todoListSlice = createSlice({
             state.push(action.payload)
         },
         toggleTodoStatus: (state, action) => {
-            const currentTodo = state.filter(todo => todo.id === action.payload);
-            currentTodo.completed = !currentTodo.completed;
+            const currentTodo = state.find(todo => todo.id === action.payload);
+            if(currentTodo) {
+                currentTodo.completed = !currentTodo.completed;
+            }
         }
     }
 })

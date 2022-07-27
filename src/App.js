@@ -15,12 +15,12 @@ function App() {
         flexDirection: 'column',
         backgroundColor: 'white',
         padding: 20,
-        boxShadow: '0 0 10px 4px #bfbfbf',
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         borderRadius: 5,
         height: '90vh',
       }}
     >
-      <Title style={{ textAlign: 'center' }}>My Todo App</Title>
+      <Title style={{ textAlign: 'center' }}>MINI TODOS</Title>
       <Filters />
       <Divider />
       <TodoList />

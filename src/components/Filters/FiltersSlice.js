@@ -31,7 +31,7 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
-export const filtersSlice = createSlice({
+export default createSlice({
     name: 'filters',
     initialState: {
         search: '',
