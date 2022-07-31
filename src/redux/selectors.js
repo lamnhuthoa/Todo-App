@@ -17,5 +17,5 @@ export const todosRemainingSelector = createSelector(todoListSelector, searchTex
             && (status === 'Completed' ? todo.completed : !todo.completed) 
             && (priorities.length ? priorities.includes(todo.priority) : true)
         );
-    });
+    }); 
 })

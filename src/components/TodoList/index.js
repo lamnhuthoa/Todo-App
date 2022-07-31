@@ -23,14 +23,14 @@ export default function TodoList() {
     }
 
     const handleAddTodo = () => {
-        setTodoName('');
-        setPriority('Medium');
         dispatch(todoListSlice.actions.addTodo({
             id: uuidv4(),
             name: todoName,
             priority: priority,
             completed: false,
         }))
+        setTodoName('');
+        setPriority('Medium');
     }
 
     return (
@@ -43,7 +43,7 @@ export default function TodoList() {
             <Col span={24} style={{position: 'absolute', bottom: '0', left: '0', right: '0'}}>
                 <Input.Group style={{ display: 'flex' }} compact>
                     <Input value={todoName} onChange={handleInputChange} />
-                    <Select defaultValue="Medium" value={priority} onChange={handlePriorityChange}>
+                    <Select defaultValue="Medium" value={priority} onChange={handlePriorityChange} style={{minWidth: '112px', textAlign: 'center'}}>
                         <Select.Option value='High' label='High'>
                             <Tag color='red'>High</Tag>
                         </Select.Option>
